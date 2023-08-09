@@ -1,3 +1,7 @@
+.fix{
+    display: flex;
+}
+
 .search-wrappper{
     display: block;
     padding-top: 15px;
