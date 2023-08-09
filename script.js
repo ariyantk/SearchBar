@@ -34,7 +34,6 @@ let person = [
   },
 ];
 
-
 //Make a search bar
 const userCardTemplate = document.querySelector("[data-user-template]");
 const userCardContainer = document.querySelector("[data-user-cards-container]");
@@ -63,4 +62,33 @@ users = person.map((user) => {
   body.textContent = user.job;
   userCardContainer.append(card);
   return { name: user.name, job: user.job, Element: card };
+});
+
+//DropDown menu
+const dropDowns = document.querySelectorAll(".dropdown");
+
+dropDowns.forEach((dropDown) => {
+  const select = dropDown.querySelector(".select");
+  const caret = dropDown.querySelector(".caret");
+  const menu = dropDown.querySelector(".menu");
+  const option = dropDown.querySelectorAll(".menu li");
+  const selected = dropDown.querySelector(".selected");
+
+  select.addEventListener("click", () => {
+    select.classList.toggle("select-cliked");
+    caret.classList.toggle("caret-rotate");
+    menu.classList.toggle("menu-open");
+  });
+
+  option.forEach((option) => {
+    option.addEventListener("click", () => {
+      selected.innerText = option.innerText;
+      select.classList.remove("select-cliked");
+      caret.classList.remove("caret-rotate");
+      menu.classList.remove("move-open");
+      option.forEach((option) => {
+        option.classList.remove("active");
+      });
+    });
+  });
 });
