@@ -1,11 +1,27 @@
-.search-wrapper{
+.search-wrappper{
+    display: block;
+    margin: auto;
+    width: max-content;
+    color: #fff;
+}
+body{
+    background: #191919;
+
+}
+.box{
+    margin: 0px 20px;
     display: flex;
     flex-direction: column;
-    gap: .25rem;
 }
-
+*{
+    margin:0;
+    padding: 0;
+}
 input{
     font-size: 1rem;
+    outline: none;
+    border:2px solid #777;
+    background-color: #191919;
 }
 
 .user-cards {
@@ -17,12 +33,14 @@ input{
 
 .card{
     text-align: right;
-    border: 1px solid black;
-    background-color: white;
+    background-color: #191919;
+    color: #fff;
     /* padding: 1.5rem; */
     display: block;
     margin: auto;
+    border: 2px solid #777;
 }
+
 
 .card > .header {
     font-size: 2rem;
