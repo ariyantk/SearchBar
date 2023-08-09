@@ -1,5 +1,6 @@
 .search-wrappper{
     display: block;
+    padding-top: 15px;
     margin: auto;
     width: max-content;
     color: #fff;
@@ -18,7 +19,7 @@ body{
     padding: 0;
 }
 input{
-    font-size: 1rem;
+    font-size: 25px;
     outline: none;
     border:2px solid #777;
     background-color: #191919;
@@ -27,8 +28,8 @@ input{
 .user-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
-    gap: .25rem;
-    margin-top: 1rem;
+    gap: 25px;
+    margin-top: 25px;
 }
 
 .card{
@@ -39,21 +40,22 @@ input{
     display: block;
     margin: auto;
     border: 2px solid #777;
+   /* margin-bottom: 20px;*/
 }
 
 
 .card > .header {
-    font-size: 2rem;
-    margin-bottom: .25rem;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
 }
 
 .card > .body {
-    font-size: 1rem;
+    font-size: 15px;
     color: #777;
-}
-
-.hide {
-    display: none;
+    margin-right: 5px;
+    margin-bottom: 10px;
 }
 
 img{
@@ -63,5 +65,9 @@ img{
     margin: auto, auto,auto,auto;
     height: 200px;
     width: 200;
-    padding-bottom: 1rem;
+    padding-bottom:5px;
+}
+
+.hide {
+    display: none;
 }
