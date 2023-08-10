@@ -1,47 +1,3 @@
-//Master's List
-/*let person = [
-  {
-    name: "name1",
-    job: "سازتدریسی: سنتور، تار، سه تار",
-    image: "",
-  },
-  {
-    name: "name2",
-    job: "سازتدریسی: گیتار",
-    image: "",
-  },
-  {
-    name: "name3",
-    job: "سازتدریسی: پیانو",
-    image: "",
-  },
-  {
-    name: "name4",
-    job: "سازتدریسی: ویولن، فلوت",
-    image: "",
-  },
-  {
-    name: "name5",
-    job: "سازتدریسی: تنبور، سه تار، تار",
-    image: "",
-  },
-  {
-    name: "name6",
-    job: "سازتدریسی: درامز",
-    image: "",
-  },
-  {
-    name: "name7",
-    job: "سازتدریسی: گیتار، درامز",
-    image: "",
-  },
-  {
-    name: "name8",
-    job: "سازتدریسی: پیانو",
-    image: "",
-  },
-];*/
-
 let person;
 
 //Make a search bar
@@ -50,7 +6,7 @@ const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.querySelector("[data-search]");
 const categoryTemplate = document.querySelector("[category-template]");
 const dataCategoryContainer = document.querySelector(
-  "[data-category-container]"
+  ".data-category-container"
 );
 
 //array for mapping users
