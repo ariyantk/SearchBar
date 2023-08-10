@@ -18,18 +18,11 @@
                 <span class="selected"> ساز مورد نظر خود را انتخاب کنید </span>
                 <div class="caret"></div>
             </div>
-            <ul class="menu">
-                <li>همه</li>
-                <li>سنتور</li>
-                <li>گیتار</li>
-                <li>پیانو</li>
-                <li>ویولن</li>
-                <li>تنبور</li>
-                <li>درامز</li>
-                <li>فلوت</li>
-                <li>سه تار</li>
-                <li>تار</li>
-            </ul>
+            <template category-template>
+                <ul class="menu" data-category-container>
+                    <li data-list></li>
+                </ul>
+            </template>
         </div>
     </div>
     <div class="box">
