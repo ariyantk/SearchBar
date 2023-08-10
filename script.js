@@ -2,35 +2,43 @@
 let person = [
   {
     name: "name1",
-    job: "santor and...",
+    job: "سازتدریسی: سنتور، تار، سه تار",
+    image: "",
   },
   {
     name: "name2",
-    job: "santor and...",
+    job: "سازتدریسی: گیتار",
+    image: "",
   },
   {
     name: "name3",
-    job: "santor and...",
+    job: "سازتدریسی: پیانو",
+    image: "",
   },
   {
     name: "name4",
-    job: "santor and...",
+    job: "سازتدریسی: ویولن، فلوت",
+    image: "",
   },
   {
     name: "name5",
-    job: "santor and...",
+    job: "سازتدریسی: تنبور، سه تار، تار",
+    image: "",
   },
   {
     name: "name6",
-    job: "santor and...",
+    job: "سازتدریسی: درامز",
+    image: "",
   },
   {
     name: "name7",
-    job: "santor and...",
+    job: "سازتدریسی: گیتار، درامز",
+    image: "",
   },
   {
     name: "name8",
-    job: "santor and...",
+    job: "سازتدریسی: پیانو",
+    image: "",
   },
 ];
 
@@ -53,6 +61,49 @@ searchInput.addEventListener("input", (e) => {
   });
 });
 
+//DropDown menu
+const dropDowns = document.querySelectorAll(".dropdown");
+
+dropDowns.forEach((dropDown) => {
+  const select = dropDown.querySelector(".select");
+  const caret = dropDown.querySelector(".caret");
+  const menu = dropDown.querySelector(".menu");
+  const options = dropDown.querySelectorAll(".menu li");
+  const selected = dropDown.querySelector(".selected");
+
+  select.addEventListener("click", () => {
+    select.classList.toggle("select-cliked");
+    caret.classList.toggle("caret-rotate");
+    menu.classList.toggle("menu-open");
+  });
+
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      selected.innerText = option.innerText;
+
+      //search person with selected job
+      const newInstrument = selected.innerText;
+      users.forEach((user) => {
+        if (newInstrument == "همه") {
+          location.reload();
+        }
+        const isVisible = user.job.includes(newInstrument);
+        user.Element.classList.toggle("hide", !isVisible);
+      });
+
+      select.classList.remove("select-cliked");
+      caret.classList.remove("caret-rotate");
+      menu.classList.remove("move-open");
+
+      options.forEach((option) => {
+        option.classList.remove("active");
+      });
+
+      option.classList.add("active");
+    });
+  });
+});
+
 //Mapping users
 users = person.map((user) => {
   const card = userCardTemplate.content.cloneNode(true).children[0];
@@ -62,33 +113,4 @@ users = person.map((user) => {
   body.textContent = user.job;
   userCardContainer.append(card);
   return { name: user.name, job: user.job, Element: card };
-});
-
-//DropDown menu
-const dropDowns = document.querySelectorAll(".dropdown");
-
-dropDowns.forEach((dropDown) => {
-  const select = dropDown.querySelector(".select");
-  const caret = dropDown.querySelector(".caret");
-  const menu = dropDown.querySelector(".menu");
-  const option = dropDown.querySelectorAll(".menu li");
-  const selected = dropDown.querySelector(".selected");
-
-  select.addEventListener("click", () => {
-    select.classList.toggle("select-cliked");
-    caret.classList.toggle("caret-rotate");
-    menu.classList.toggle("menu-open");
-  });
-
-  option.forEach((option) => {
-    option.addEventListener("click", () => {
-      selected.innerText = option.innerText;
-      select.classList.remove("select-cliked");
-      caret.classList.remove("caret-rotate");
-      menu.classList.remove("move-open");
-      option.forEach((option) => {
-        option.classList.remove("active");
-      });
-    });
-  });
 });
