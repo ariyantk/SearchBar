@@ -6,7 +6,7 @@ const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.querySelector("[data-search]");
 const categoryTemplate = document.querySelector("[category-template]");
 const dataCategoryContainer = document.querySelector(
-  ".data-category-container"
+  "[data-category-container]"
 );
 
 //array for mapping users
@@ -24,15 +24,32 @@ searchInput.addEventListener("input", (e) => {
   });
 });
 
+//mapping categories
+fetch("./category.json")
+  .then((res) => res.json())
+  .then((data) => {
+    categories = data.map((cat) => {
+      const title = categoryTemplate.content.cloneNode(true).children[0];
+      const dataList = title.querySelector("[data-list]");
+      dataList.textContent = cat.instrumentName;
+      dataCategoryContainer.append(title);
+      return { title: cat.instrumentName, Element: title };
+    });
+  });
+
 //DropDown menu
 const dropDowns = document.querySelectorAll(".dropdown");
 
 dropDowns.forEach((dropDown) => {
   const select = dropDown.querySelector(".select");
+  console.log(select);
   const caret = dropDown.querySelector(".caret");
   const menu = dropDown.querySelector(".menu");
-  const options = dropDown.querySelectorAll(".menu li");
+  //const options = dropDown.querySelectorAll(".menu li");
+  const options = dropDown.querySelectorAll(".menu .innerlist li");
+  console.log(options);
   const selected = dropDown.querySelector(".selected");
+  console.log(selected);
 
   select.addEventListener("click", () => {
     select.classList.toggle("select-cliked");
@@ -82,18 +99,6 @@ fetch("./masters.json")
     });
   });
 
-//mapping categories
-fetch("./category.json")
-  .then((res) => res.json())
-  .then((data) => {
-    categories = data.map((cat) => {
-      const title = categoryTemplate.content.cloneNode(true).children[0];
-      const dataList = title.querySelector("[data-list]");
-      dataList.textContent = cat.instrumentName;
-      dataCategoryContainer.append(title);
-      return { title: cat.instrumentName, Element: title };
-    });
-  });
 /* 
 users = person.map((user) => {
   const card = userCardTemplate.content.cloneNode(true).children[0];
