@@ -23,9 +23,11 @@ body{
 }
 input{
     font-size: 35px;
+    text-align: right;
     outline: none;
     border:2px solid #777;
     background-color: #191919;
+    color: #fff;
 }
 
 .user-cards {
@@ -69,6 +71,11 @@ img{
     height: 200px;
     width: 200;
     padding-bottom:5px;
+}
+
+#profile{
+    width: 200px;
+    height: 200px;
 }
 
 span{
